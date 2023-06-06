@@ -2,58 +2,15 @@
 import "bootstrap";
 import "./style.css";
 
-const extensions = [".com", ".net", ".us", ".org", ".app"];
+let adj = ["cool", "hipster", "epic", "supreme"];
+let words = ["tech", "coding", "javascript", "geeks"];
+let extension = [".com", ".edu", ".net", ".org"];
 
-function generateDomain() {
-  let pronoun = [
-    "the",
-    "our",
-    "everthing",
-    "few",
-    "many",
-    "most",
-    "his",
-    "her"
-  ];
-  let adj = [
-    "great",
-    "big",
-    "small",
-    "adorable",
-    "srong",
-    "happy",
-    "bright",
-    "attractive"
-  ];
-  let noun = [
-    "jogger",
-    "racoon",
-    "jelly",
-    "potato",
-    "animal",
-    "pillow",
-    "piano",
-    "pencil",
-    "paper",
-    "stone",
-    "cats"
-  ];
-
-  let randomPronoun = pronoun[Math.floor(Math.random() * pronoun.length)];
-  let randomAdj = adj[Math.floor(Math.random() * adj.length)];
-  let randomNoun = noun[Math.floor(Math.random() * noun.length)];
-  let randowmExt = extensions[Math.floor(Math.random() * extensions.length)];
-
-  return "www." + randomPronoun + randomAdj + randomNoun + randowmExt;
+for (let indexAdj = 0; indexAdj < adj.length; indexAdj++) {
+  for (let indexWords = 0; indexWords < words.length; indexWords++) {
+    for (let indexExt = 0; indexExt < words.length; indexExt++) {
+      let domainName = adj[indexAdj] + words[indexWords] + extension[indexExt];
+      console.log(domainName);
+    }
+  }
 }
-
-function displayDomain() {
-  const domainContainer = document.getElementById("domain-name");
-  const domain = generateDomain();
-  domainContainer.textContent = domain;
-}
-
-const generateButton = document.getElementById("btn-gen");
-generateButton.addEventListener("click", displayDomain);
-
-displayDomain();
